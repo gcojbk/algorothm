@@ -9,6 +9,7 @@ extern void BubbleSort(std::vector<int>& arr);
 extern void SelectSort(std::vector<int>& arr);
 extern void InsertSort(std::vector<int>& arr);
 extern void MergeSort(std::vector<int>& arr);
+extern void QuickSort(std::vector<int>& arr);
 
 std::vector<int> generateArray() {
     unsigned len = rand() % 10;
@@ -36,12 +37,14 @@ int main(int argc, char** argv) {
         auto selectArr = ori;
         auto insertArr = ori;
         auto mergeArr = ori;
+        auto quickArr = ori;
 
         std::sort(arr.begin(), arr.end());
         BubbleSort(bubbleArr);
         SelectSort(selectArr);
         InsertSort(insertArr);
         MergeSort(mergeArr);
+        QuickSort(quickArr);
 
         if (bubbleArr != arr) {
             showArray(ori);
@@ -68,6 +71,13 @@ int main(int argc, char** argv) {
             showArray(ori);
             showArray(arr);
             showArray(mergeArr);
+            printf("merge sort failed\n");
+        }
+
+        if (quickArr != arr) {
+            showArray(ori);
+            showArray(arr);
+            showArray(quickArr);
             printf("merge sort failed\n");
         }    
     }
